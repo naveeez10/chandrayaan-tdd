@@ -1,14 +1,17 @@
 import unittest
-from spacecraft import Spacecraft
+from spacecraft import *
+
 
 class SpacecraftTests(unittest.TestCase):
 
-    def test_initialization(self):
-        spacecraft = Spacecraft(0, 0, 0, 'N')
-        self.assertEqual(spacecraft.x, 0)
-        self.assertEqual(spacecraft.y, 0)
-        self.assertEqual(spacecraft.z, 0)
-        self.assertEqual(spacecraft.direction, 'N')
+    def test_initialization_from_user_input(self):
+        """Test initialization of spacecraft with predefined input values."""
+        spacecraft, x, y, z, direction = user_input_spacecraft()
+        
+        self.assertEqual(spacecraft.x, x)
+        self.assertEqual(spacecraft.y, y)
+        self.assertEqual(spacecraft.z, z)
+        self.assertEqual(spacecraft.direction, direction.upper())
 
 if __name__ == '__main__':
     unittest.main()
