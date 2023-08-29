@@ -11,28 +11,64 @@ class Spacecraft:
         if self.direction not in DIRECTIONS:
             raise ValueError("Invalid direction!")
         
-    def move(self, distance):
-        # Move the spacecraft in its current direction by a specified distance.
-        if self.direction == "N":
+    def move(self, command, distance):
+        """
+        Move the spacecraft based on the provided command and distance.
+
+        Args:
+            command (str): The movement command. Options are 'forward', 'backward', 'turn left', 
+                           'turn right', 'turn up', 'turn down'.
+            distance (int, optional): The distance to move. Defaults to 1.
+        """
+        if command == 'forward':
+            self._move_forward(distance)
+        elif command == 'backward':
+            self._move_backward(distance)
+        elif command == 'turn left':
+            self._turn_left()
+        elif command == 'turn right':
+            self._turn_right()
+        elif command == 'turn up':
+            self._turn_up()
+        elif command == 'turn down':
+            self._turn_down()
+
+    def _move_forward(self, distance):
+        if self.direction == 'N':
             self.y += distance
-        elif self.direction == "S":
+        elif self.direction == 'S':
             self.y -= distance
-        elif self.direction == "E":
+        elif self.direction == 'E':
             self.x += distance
-        elif self.direction == "W":
+        elif self.direction == 'W':
             self.x -= distance
-        elif self.direction == "UP":
+        elif self.direction == 'Up':
             self.z += distance
-        elif self.direction == "DOWN":
+        elif self.direction == 'Down':
             self.z -= distance
-        else:
-            raise ValueError(f"Invalid movement direction: {self.direction}")
-        
-    def rotate(self, new_direction):
-        # Rotate the spacecraft to a new direction.
-        if new_direction not in DIRECTIONS:
-            raise ValueError(f"Invalid direction: {new_direction}")
-        self.direction = new_direction
+
+    def _move_backward(self, distance):
+        self._move_forward(-distance)
+
+    def _turn_left(self):
+        directions_horizontal = ['N', 'E', 'S', 'W']
+        if self.direction in directions_horizontal:
+            curr_idx = directions_horizontal.index(self.direction)
+            self.direction = directions_horizontal[(curr_idx - 1) % 4]
+
+    def _turn_right(self):
+        directions_horizontal = ['N', 'E', 'S', 'W']
+        if self.direction in directions_horizontal:
+            curr_idx = directions_horizontal.index(self.direction)
+            self.direction = directions_horizontal[(curr_idx + 1) % 4]
+
+    def _turn_up(self):
+        if self.direction not in ['Up', 'Down']:
+            self.direction = 'Up'
+
+    def _turn_down(self):
+        if self.direction not in ['Up', 'Down']:
+            self.direction = 'Down'
 
 def user_input_spacecraft(x=None, y=None, z=None, direction=None):
     """Function to get user input or use predefined values for testing."""
