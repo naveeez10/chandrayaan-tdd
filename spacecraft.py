@@ -1,74 +1,60 @@
-DIRECTIONS = ["N", "S", "E", "W", "UP", "DOWN"]
+DIRECTIONS = ["N", "S", "E", "W", "U", "D"]
+
 class Spacecraft:
     def __init__(self, x, y, z, direction):
         self.x = x
         self.y = y
         self.z = z
         self.direction = direction.upper()
-        self.validate()
 
-    def validate(self):
-        if self.direction not in DIRECTIONS:
-            raise ValueError("Invalid direction!")
-        
-    def move(self, command, distance):
-        """
-        Move the spacecraft based on the provided command and distance.
+        self.DIRECTION_MATRIX = {
+            'N': {'x': 0, 'y': 1, 'z': 0},
+            'E': {'x': 1, 'y': 0, 'z': 0},
+            'S': {'x': 0, 'y': -1, 'z': 0},
+            'W': {'x': -1, 'y': 0, 'z': 0},
+            'U': {'x': 0, 'y': 0, 'z': 1},
+            'D': {'x': 0, 'y': 0, 'z': -1}
+        }
 
-        Args:
-            command (str): The movement command. Options are 'forward', 'backward', 'turn left', 
-                           'turn right', 'turn up', 'turn down'.
-            distance (int, optional): The distance to move. Defaults to 1.
-        """
+        self.Directions = ["N", "E", "S", "W"]
+
+    def move(self, command, length):
         if command == 'forward':
-            self._move_forward(distance)
+            self.go(1)
         elif command == 'backward':
-            self._move_backward(distance)
+            self.go(-1)
         elif command == 'turn left':
-            self._turn_left()
+            self.turn(-1)  # Turn left
         elif command == 'turn right':
-            self._turn_right()
-        elif command == 'turn up':
-            self._turn_up()
-        elif command == 'turn down':
-            self._turn_down()
+            self.turn(1)   # Turn right
+        elif command == 'turn U':
+            self.direction = 'U'
+        elif command == 'turn D':
+            self.direction = 'D'
+        else:
+            raise ValueError(f"Invalid command: {command}")
 
-    def _move_forward(self, distance):
-        if self.direction == 'N':
-            self.y += distance
-        elif self.direction == 'S':
-            self.y -= distance
-        elif self.direction == 'E':
-            self.x += distance
-        elif self.direction == 'W':
-            self.x -= distance
-        elif self.direction == 'Up':
-            self.z += distance
-        elif self.direction == 'Down':
-            self.z -= distance
+    def turn(self, turn_direction):
+        if self.direction == 'U':
+            self.direction = 'S' if turn_direction == 1 else 'N'
+            return
 
-    def _move_backward(self, distance):
-        self._move_forward(-distance)
+        if self.direction == 'D':
+            self.direction = 'N' if turn_direction == 1 else 'S'
+            return
 
-    def _turn_left(self):
-        directions_horizontal = ['N', 'E', 'S', 'W']
-        if self.direction in directions_horizontal:
-            curr_idx = directions_horizontal.index(self.direction)
-            self.direction = directions_horizontal[(curr_idx - 1) % 4]
+        current_idx = self.Directions.index(self.direction)
+        new_idx = (current_idx + turn_direction + 4) % 4
+        self.direction = self.Directions[new_idx]
 
-    def _turn_right(self):
-        directions_horizontal = ['N', 'E', 'S', 'W']
-        if self.direction in directions_horizontal:
-            curr_idx = directions_horizontal.index(self.direction)
-            self.direction = directions_horizontal[(curr_idx + 1) % 4]
-
-    def _turn_up(self):
-        if self.direction not in ['Up', 'Down']:
-            self.direction = 'Up'
-
-    def _turn_down(self):
-        if self.direction not in ['Up', 'Down']:
-            self.direction = 'Down'
+    def go(self, buffer):
+        direction_values = self.DIRECTION_MATRIX.get(self.direction)
+        if not direction_values:
+            raise ValueError(f"Invalid direction: {self.direction}")
+        
+        self.x += direction_values['x'] * buffer
+        self.y += direction_values['y'] * buffer
+        self.z += direction_values['z'] * buffer
 
 def user_input_spacecraft(x=None, y=None, z=None, direction=None):
     """Function to get user input or use predefined values for testing."""
