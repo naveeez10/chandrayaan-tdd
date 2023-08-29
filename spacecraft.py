@@ -9,6 +9,18 @@ class Spacecraft:
     def validate(self):
         if self.direction not in ['N', 'S', 'E', 'W']:
             raise ValueError("Invalid direction!")
+        
+    def move_x(self,x):
+        """Move the spacecraft in the x-direction by the given distance."""
+        self.x += x
+        
+    def move_y(self,y):
+        """Move the spacecraft in the y-direction by the given distance."""
+        self.y += y
+        
+    def move_z(self,z):
+        """Move the spacecraft in the z-direction by the given distance."""
+        self.z += z
 
 def user_input_spacecraft(x=None, y=None, z=None, direction=None):
     """Function to get user input or use predefined values for testing."""
