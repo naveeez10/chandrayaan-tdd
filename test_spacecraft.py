@@ -381,8 +381,18 @@ class SpacecraftTests(unittest.TestCase):
         
         # Assert that spacecraft's direction is now South 
         self.assertEqual(spacecraft.direction, "S")
-
-
+    
+    def test_invalid_command(self):
+        """Test when invalid commmand is passed."""
+        
+        #Intialize spacecraft facing N at position(0, 0, 0)
+        spacecraft = Spacecraft(direction='N',x=0,y=0,z=0)
+        
+        #Pass an Invalid Command
+        spacecraft.move("xehfe",0)
+        
+        #Assert that the spacecraft's direction hasn't changed as the command is invalid
+        self.assertEqual(spacecraft.direction,'N')
 
         
 

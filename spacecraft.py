@@ -19,6 +19,7 @@ class Spacecraft:
         self.Directions = ["N", "E", "S", "W"]
 
     def move(self, command, length):
+          
         if command == 'forward':
             self.go(1)
         elif command == 'backward':
@@ -32,7 +33,7 @@ class Spacecraft:
         elif command == 'turn D':
             self.direction = 'D'
         else:
-            raise ValueError(f"Invalid command: {command}")
+            print("Invalid Command")
 
     def turn(self, turn_direction):
         if self.direction == 'U':
