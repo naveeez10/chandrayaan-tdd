@@ -7,7 +7,6 @@ A CLI application to navigate a spacecraft in 3D space. The user defines the spa
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Running the tests](#running-the-tests)
 - [Built With](#built-with)
 - [Authors](#authors)
