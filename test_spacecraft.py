@@ -20,8 +20,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="N",x=0,y=0,z=0)
         
         # Move spacecraft forward by 1 unit
-        spacecraft.move("forward",1)
-        
+        spacecraft.move("forward")      
         # Assert that spacecraft's y-coordinate has increased by 1 and direction remains North
         self.assertEqual(spacecraft.y,1)
         self.assertEqual(spacecraft.direction,"N")
@@ -32,8 +31,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="N",x=0,y=0,z=0)
         
         # Move spacecraft backward by 1 unit
-        spacecraft.move("backward",1)
-        
+        spacecraft.move("backward")       
         # Assert that spacecraft's y-coordinate has decreased by 1 and direction remains North
         self.assertEqual(spacecraft.y,-1)
         self.assertEqual(spacecraft.direction,"N")
@@ -44,7 +42,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="N",x=0,y=0,z=0)
         
         # Turn the spacecraft to the right
-        spacecraft.move("turn right",0)
+        spacecraft.move("turn right")
         
         # Assert that spacecraft's direction is now East
         self.assertEqual(spacecraft.direction,"E")
@@ -55,8 +53,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="N",x=0,y=0,z=0)
         
         # Turn the spacecraft to the left
-        spacecraft.move("turn left",0)
-        
+        spacecraft.move("turn left")        
         # Assert that spacecraft's direction is now West 
         self.assertEqual(spacecraft.direction,"W")
     
@@ -66,8 +63,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="N",x=0,y=0,z=0)
         
         # Move spacecraft U by 1 unit
-        spacecraft.move("turn U",0)
-        
+        spacecraft.move("turn U")     
         # Assert that spacecraft's direction is now U 
         self.assertEqual(spacecraft.direction,"U")
         
@@ -77,8 +73,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="N",x=0,y=0,z=0)
         
         # Move spacecraft D by 1 unit
-        spacecraft.move("turn D",0)
-        
+        spacecraft.move("turn D")     
         # Assert that spacecraft's direction is now D 
         self.assertEqual(spacecraft.direction,"D")
         
@@ -88,8 +83,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="S", x=0, y=0, z=0)
         
         # Move spacecraft forward by 1 unit
-        spacecraft.move("forward", 1)
-        
+        spacecraft.move("forward",)       
         # Assert that spacecraft's y-coordinate has decreased by 1 and direction remains South
         self.assertEqual(spacecraft.y, -1)
         self.assertEqual(spacecraft.direction, "S")
@@ -100,8 +94,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="S", x=0, y=0, z=0)
         
         # Move spacecraft backward by 1 unit
-        spacecraft.move("backward", 1)
-        
+        spacecraft.move("backward")        
         # Assert that spacecraft's y-coordinate has increased by 1 and direction remains South
         self.assertEqual(spacecraft.y, 1)
         self.assertEqual(spacecraft.direction, "S")
@@ -112,7 +105,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="S", x=0, y=0, z=0)
         
         # Turn the spacecraft to the right
-        spacecraft.move("turn right", 0)
+        spacecraft.move("turn right")
         
         # Assert that spacecraft's direction is now West
         self.assertEqual(spacecraft.direction, "W")
@@ -123,7 +116,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="S", x=0, y=0, z=0)
         
         # Turn the spacecraft to the left
-        spacecraft.move("turn left", 0)
+        spacecraft.move("turn left")
         
         # Assert that spacecraft's direction is now East 
         self.assertEqual(spacecraft.direction, "E")
@@ -134,8 +127,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="S", x=0, y=0, z=0)
         
         # Turn the spacecraft U
-        spacecraft.move("turn U", 0)
-        
+        spacecraft.move("turn U",)      
         # Assert that spacecraft's direction is now U 
         self.assertEqual(spacecraft.direction, "U")
         
@@ -145,8 +137,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="S", x=0, y=0, z=0)
         
         # Turn the spacecraft D
-        spacecraft.move("turn D", 0)
-        
+        spacecraft.move("turn D",)      
         # Assert that spacecraft's direction is now D 
         self.assertEqual(spacecraft.direction, "D")
         # Tests for direction E (East)
@@ -156,8 +147,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="E", x=0, y=0, z=0)
         
         # Move spacecraft forward by 1 unit
-        spacecraft.move("forward", 1)
-        
+        spacecraft.move("forward",)       
         # Assert that spacecraft's x-coordinate has increased by 1 and direction remains East
         self.assertEqual(spacecraft.x, 1)
         self.assertEqual(spacecraft.direction, "E")
@@ -168,8 +158,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="E", x=0, y=0, z=0)
         
         # Move spacecraft backward by 1 unit
-        spacecraft.move("backward", 1)
-        
+        spacecraft.move("backward")        
         # Assert that spacecraft's x-coordinate has decreased by 1 and direction remains East
         self.assertEqual(spacecraft.x, -1)
         self.assertEqual(spacecraft.direction, "E")
@@ -180,7 +169,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="E", x=0, y=0, z=0)
         
         # Turn the spacecraft to the right
-        spacecraft.move("turn right", 0)
+        spacecraft.move("turn right")
         
         # Assert that spacecraft's direction is now South
         self.assertEqual(spacecraft.direction, "S")
@@ -191,7 +180,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="E", x=0, y=0, z=0)
         
         # Turn the spacecraft to the left
-        spacecraft.move("turn left", 0)
+        spacecraft.move("turn left")
         
         # Assert that spacecraft's direction is now North 
         self.assertEqual(spacecraft.direction, "N")
@@ -202,8 +191,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="E", x=0, y=0, z=0)
         
         # Turn the spacecraft U
-        spacecraft.move("turn U", 0)
-        
+        spacecraft.move("turn U",)      
         # Assert that spacecraft's direction is now U 
         self.assertEqual(spacecraft.direction, "U")
         
@@ -213,8 +201,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="E", x=0, y=0, z=0)
         
         # Turn the spacecraft D
-        spacecraft.move("turn D", 0)
-        
+        spacecraft.move("turn D",)      
         # Assert that spacecraft's direction is now D 
         self.assertEqual(spacecraft.direction, "D")
 
@@ -226,8 +213,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="W", x=0, y=0, z=0)
         
         # Move spacecraft forward by 1 unit
-        spacecraft.move("forward", 1)
-        
+        spacecraft.move("forward",)       
         # Assert that spacecraft's x-coordinate has decreased by 1 and direction remains West
         self.assertEqual(spacecraft.x, -1)
         self.assertEqual(spacecraft.direction, "W")
@@ -238,8 +224,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="W", x=0, y=0, z=0)
         
         # Move spacecraft backward by 1 unit
-        spacecraft.move("backward", 1)
-        
+        spacecraft.move("backward")        
         # Assert that spacecraft's x-coordinate has increased by 1 and direction remains West
         self.assertEqual(spacecraft.x, 1)
         self.assertEqual(spacecraft.direction, "W")
@@ -250,7 +235,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="W", x=0, y=0, z=0)
         
         # Turn the spacecraft to the right
-        spacecraft.move("turn right", 0)
+        spacecraft.move("turn right")
         
         # Assert that spacecraft's direction is now North
         self.assertEqual(spacecraft.direction, "N")
@@ -261,7 +246,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="W", x=0, y=0, z=0)
         
         # Turn the spacecraft to the left
-        spacecraft.move("turn left", 0)
+        spacecraft.move("turn left")
         
         # Assert that spacecraft's direction is now South 
         self.assertEqual(spacecraft.direction, "S")
@@ -272,8 +257,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="W", x=0, y=0, z=0)
         
         # Turn the spacecraft U
-        spacecraft.move("turn U", 0)
-        
+        spacecraft.move("turn U",)      
         # Assert that spacecraft's direction is now U 
         self.assertEqual(spacecraft.direction, "U")
         
@@ -283,8 +267,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="W", x=0, y=0, z=0)
         
         # Turn the spacecraft D
-        spacecraft.move("turn D", 0)
-        
+        spacecraft.move("turn D",)      
         # Assert that spacecraft's direction is now D 
         self.assertEqual(spacecraft.direction, "D")
 
@@ -295,8 +278,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="U", x=0, y=0, z=0)
         
         # Move spacecraft forward by 1 unit
-        spacecraft.move("forward", 1)
-        
+        spacecraft.move("forward",)       
         # Assert that spacecraft's z-coordinate has increased by 1 and direction remains U
         self.assertEqual(spacecraft.z, 1)
         self.assertEqual(spacecraft.direction, "U")
@@ -307,8 +289,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="U", x=0, y=0, z=0)
         
         # Move spacecraft backward by 1 unit
-        spacecraft.move("backward", 1)
-        
+        spacecraft.move("backward")        
         # Assert that spacecraft's z-coordinate has decreased by 1 and direction remains U
         self.assertEqual(spacecraft.z, -1)
         self.assertEqual(spacecraft.direction, "U")
@@ -319,7 +300,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="U", x=0, y=0, z=0)
         
         # Turn the spacecraft to the right
-        spacecraft.move("turn right", 0)
+        spacecraft.move("turn right")
         
         # Assert that spacecraft's direction is now South
         self.assertEqual(spacecraft.direction, "S")
@@ -330,7 +311,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="U", x=0, y=0, z=0)
         
         # Turn the spacecraft to the left
-        spacecraft.move("turn left", 0)
+        spacecraft.move("turn left")
         
         # Assert that spacecraft's direction is now North 
         self.assertEqual(spacecraft.direction, "N")
@@ -342,8 +323,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="D", x=0, y=0, z=0)
         
         # Move spacecraft forward by 1 unit
-        spacecraft.move("forward", 1)
-        
+        spacecraft.move("forward",)       
         # Assert that spacecraft's z-coordinate has decreased by 1 and direction remains D
         self.assertEqual(spacecraft.z, -1)
         self.assertEqual(spacecraft.direction, "D")
@@ -354,8 +334,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="D", x=0, y=0, z=0)
         
         # Move spacecraft backward by 1 unit
-        spacecraft.move("backward", 1)
-        
+        spacecraft.move("backward")        
         # Assert that spacecraft's z-coordinate has increased by 1 and direction remains D
         self.assertEqual(spacecraft.z, 1)
         self.assertEqual(spacecraft.direction, "D")
@@ -366,7 +345,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="D", x=0, y=0, z=0)
         
         # Turn the spacecraft to the right
-        spacecraft.move("turn right", 0)
+        spacecraft.move("turn right")
         
         # Assert that spacecraft's direction is now North
         self.assertEqual(spacecraft.direction, "N")
@@ -377,7 +356,7 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction="D", x=0, y=0, z=0)
         
         # Turn the spacecraft to the left
-        spacecraft.move("turn left", 0)
+        spacecraft.move("turn left")
         
         # Assert that spacecraft's direction is now South 
         self.assertEqual(spacecraft.direction, "S")
@@ -389,12 +368,9 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft = Spacecraft(direction='N',x=0,y=0,z=0)
         
         #Pass an Invalid Command
-        spacecraft.move("xehfe",0)
-        
+        spacecraft.move("hehehe")     
         #Assert that the spacecraft's direction hasn't changed as the command is invalid
         self.assertEqual(spacecraft.direction,'N')
-
         
-
 if __name__ == '__main__':
     unittest.main()
