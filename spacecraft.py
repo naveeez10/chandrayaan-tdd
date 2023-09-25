@@ -1,5 +1,5 @@
 DIRECTIONS = ["N", "S", "E", "W", "U", "D"]
-
+y_bound = 5
 class Spacecraft:
     def __init__(self, x, y, z, direction):
         self.x = x
@@ -17,17 +17,18 @@ class Spacecraft:
         }
 
         self.Directions = ["N", "E", "S", "W"]
+        
+        
 
     def move(self, command):
-          
         if command == 'forward':
             self.go(1)
         elif command == 'backward':
             self.go(-1)
         elif command == 'turn left':
-            self.turn(-1)  # Turn left
+            self.turn(-1)
         elif command == 'turn right':
-            self.turn(1)   # Turn right
+            self.turn(1)  
         elif command == 'turn U':
             self.direction = 'U'
         elif command == 'turn D':
@@ -55,6 +56,8 @@ class Spacecraft:
         
         self.x += direction_values['x'] * buffer
         self.y += direction_values['y'] * buffer
+        if(self.y > y_bound):
+            self.y = y_bound
         self.z += direction_values['z'] * buffer
 
 def user_input_spacecraft(x=None, y=None, z=None, direction=None):
