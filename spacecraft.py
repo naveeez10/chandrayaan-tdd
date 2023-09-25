@@ -26,7 +26,7 @@ class Spacecraft:
         elif command == 'backward':
             self.go(-1)
         elif command == 'turn left':
-            self.turn(-1)
+            self.turn(-1) 
         elif command == 'turn right':
             self.turn(1)  
         elif command == 'turn U':
@@ -49,16 +49,17 @@ class Spacecraft:
         new_idx = (current_idx + turn_direction + 4) % 4
         self.direction = self.Directions[new_idx]
 
-    def go(self, buffer):
+    def go(self, step):
         direction_values = self.DIRECTION_MATRIX.get(self.direction)
         if not direction_values:
             raise ValueError(f"Invalid direction: {self.direction}")
-        
-        self.x += direction_values['x'] * buffer
-        self.y += direction_values['y'] * buffer
+
+        # The variable step's value can be 1 or -1, indicating whether to go forward for backwards
+        self.x += direction_values['x'] * step
+        self.y += direction_values['y'] * step
         if(self.y > y_bound):
             self.y = y_bound
-        self.z += direction_values['z'] * buffer
+        self.z += direction_values['z'] * step
 
 def user_input_spacecraft(x=None, y=None, z=None, direction=None):
     """Function to get user input or use predefined values for testing."""
