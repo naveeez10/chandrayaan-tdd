@@ -266,7 +266,6 @@ class SpacecraftTests(unittest.TestCase):
     
     def test_out_of_bounds(self):
             spacecraft = Spacecraft(direction='N',x=0,y=5,z=0)
-            y_bound = 5
             spacecraft.move("forward")
             self.assertLessEqual(spacecraft.y,y_bound)
               
