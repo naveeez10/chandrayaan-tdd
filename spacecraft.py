@@ -30,7 +30,10 @@ class Spacecraft:
         elif command == 'turn right':
             self.turn(1)  
         elif command == 'turn U':
-            self.direction = 'U'
+            if self.direction == 'U':
+                self.direction = 'D'
+            else:
+                self.direction = 'U'
         elif command == 'turn D':
             self.direction = 'D'
         else:
