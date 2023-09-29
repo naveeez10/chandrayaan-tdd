@@ -1,7 +1,9 @@
+from typing import Tuple
+
 DIRECTIONS = ["N", "S", "E", "W", "U", "D"]
 y_bound = 5
 class Spacecraft:
-    def __init__(self, x, y, z, direction):
+    def __init__(self, x:int, y:int, z:int, direction: str) -> None:
         self.x = x
         self.y = y
         self.z = z
@@ -64,7 +66,7 @@ class Spacecraft:
             self.y = y_bound
         self.z += direction_values['z'] * step
 
-def user_input_spacecraft(x=None, y=None, z=None, direction=None):
+def user_input_spacecraft(x=None, y=None, z=None, direction=None) -> Tuple[Spacecraft, int, int, int, str]:
     """Function to get user input or use predefined values for testing."""
     if x is None:
         x = int(input("Enter x-coordinate: "))
