@@ -263,6 +263,11 @@ class SpacecraftTests(unittest.TestCase):
         spacecraft.move("hehehe")     
         self.assertEqual(spacecraft.direction,'N')
     
+    def test_turn_U_with_direction_U(self):
+        spacecraft = Spacecraft(direction='U',x=0,y=0,z=0)
+        spacecraft.move("turn U")
+        self.assertEqual(self.direction, 'D')
+    
     
     def test_out_of_bounds(self):
             spacecraft = Spacecraft(direction='N',x=0,y=5,z=0)
