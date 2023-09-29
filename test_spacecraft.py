@@ -1,7 +1,21 @@
 import unittest
+from typing import get_type_hints
 from spacecraft import *
 
 class SpacecraftTests(unittest.TestCase):
+    
+    def test_type_hints_present(self) -> None:
+        """Test that type hints are present in the Spacecraft class and user_input_spacecraft function."""
+        spacecraft_hints = get_type_hints(Spacecraft.__init__)
+        user_input_spacecraft_hints = get_type_hints(user_input_spacecraft)
+        
+        self.assertIn('direction', spacecraft_hints)
+        self.assertIn('x', spacecraft_hints)
+        self.assertIn('y', spacecraft_hints)
+        self.assertIn('z', spacecraft_hints)
+        self.assertIn('return', spacecraft_hints)
+        
+        self.assertIn('return', user_input_spacecraft_hints)
     
     def test_initialization_from_user_input(self):
         """Test initialization of spacecraft with predefined input values."""
